@@ -108,7 +108,7 @@ class _AccountsPageState extends State<AccountsPage> {
         border: Border(
             bottom: BorderSide(color: Colors.white.withOpacity(0.1), width: 1)),
       ),
-      padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Row(
         children: [
           createAvatar(user),
@@ -118,7 +118,9 @@ class _AccountsPageState extends State<AccountsPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("${user.firstName} ${user.lastName}"),
+                Text("${user.firstName} ${user.lastName}",
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold)),
                 Text(
                   "@${user.username}",
                   style: TextStyle(
@@ -126,7 +128,10 @@ class _AccountsPageState extends State<AccountsPage> {
                       fontSize: 12,
                       color: Colors.white.withOpacity(0.5)),
                 ),
-                Text("${user.email}"),
+                Text(
+                  "${user.email}",
+                  style: TextStyle(color: Colors.white.withOpacity(0.8)),
+                ),
               ],
             ),
           )
