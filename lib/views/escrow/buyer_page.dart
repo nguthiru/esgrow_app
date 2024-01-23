@@ -2,12 +2,15 @@ import 'dart:developer';
 
 import 'package:esgrow/constants/colors.dart';
 import 'package:esgrow/constants/spacings.dart';
+import 'package:esgrow/models/app_context.dart';
 import 'package:esgrow/views/escrow/components/qr_page.dart';
 import 'package:esgrow/views/escrow/transaction_confirmation.dart';
 import 'package:flutter/material.dart';
 
 class BuyerPage extends StatefulWidget {
-  const BuyerPage({super.key});
+  AppContext appContext;
+
+  BuyerPage({super.key, required this.appContext});
 
   @override
   State<BuyerPage> createState() => _BuyerPageState();
@@ -27,6 +30,7 @@ bool isURL(String str) {
 class _BuyerPageState extends State<BuyerPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   String code = "";
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -57,7 +61,8 @@ class _BuyerPageState extends State<BuyerPage> {
 
                           Navigator.push(context, MaterialPageRoute(
                             builder: (context) {
-                              return TransactionConfirmation();
+                              return TransactionConfirmation(
+                                  appContext: widget.appContext);
                             },
                           ));
                         }

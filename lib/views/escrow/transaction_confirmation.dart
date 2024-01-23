@@ -1,6 +1,7 @@
 import 'package:esgrow/components/agreement_container.dart';
 import 'package:esgrow/constants/colors.dart';
 import 'package:esgrow/constants/spacings.dart';
+import 'package:esgrow/models/app_context.dart';
 import 'package:esgrow/views/home/home.dart';
 import 'package:esgrow/views/home/homepage.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,9 @@ String escrowAgreementText =
     "The escrow agreement, pivotal in the sale of furniture between the Buyer and Seller and facilitated by the Escrow Agent, prioritizes the secure and efficient delivery of the purchased items. Acting as a safeguard, this agreement ensures that the funds are securely held until the specified conditions in the purchase agreement, such as successful delivery and acceptance of the furniture, are met. ";
 
 class TransactionConfirmation extends StatelessWidget {
-  const TransactionConfirmation({super.key});
+  AppContext appContext;
+
+  TransactionConfirmation({super.key, required this.appContext});
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +127,7 @@ class TransactionConfirmation extends StatelessWidget {
 
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
-                          return Homepage();
+                          return Homepage(appContext: appContext);
                         },
                       ));
                     });

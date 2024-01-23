@@ -1,11 +1,14 @@
 import 'package:esgrow/constants/colors.dart';
 import 'package:esgrow/constants/spacings.dart';
+import 'package:esgrow/models/app_context.dart';
 import 'package:esgrow/views/escrow/buyer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class EscrowPage extends StatelessWidget {
-  const EscrowPage({super.key});
+  AppContext appContext;
+
+  EscrowPage({super.key, required this.appContext});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +38,7 @@ class EscrowPage extends StatelessWidget {
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(
                           builder: (context) {
-                            return const BuyerPage();
+                            return BuyerPage(appContext: appContext);
                           },
                         ));
                       },

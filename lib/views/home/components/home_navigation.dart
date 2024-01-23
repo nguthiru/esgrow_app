@@ -1,5 +1,6 @@
 import 'package:esgrow/components/bottom_navigation_item.dart';
 import 'package:esgrow/constants/spacings.dart';
+import 'package:esgrow/models/app_context.dart';
 import 'package:esgrow/views/escrow/escrow.dart';
 import 'package:flutter/material.dart';
 
@@ -8,10 +9,13 @@ class HomeBottomNavigationBar extends StatefulWidget {
       {super.key,
       required this.activeIndex,
       required this.onTap,
-      this.height = kBottomNavigationBarHeight});
+      this.height = kBottomNavigationBarHeight,
+      required this.appContext});
+
   final int activeIndex;
   final Function(int index) onTap;
   final double height;
+  final AppContext appContext;
 
   @override
   State<HomeBottomNavigationBar> createState() =>
@@ -53,7 +57,11 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
                 backgroundColor: Colors.transparent,
                 context: context,
                 builder: (context) {
-                  return Container(height: 300, child: EscrowPage());
+                  return Container(
+                      height: 300,
+                      child: EscrowPage(
+                        appContext: widget.appContext,
+                      ));
                 },
               )
             },
