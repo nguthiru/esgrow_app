@@ -3,7 +3,8 @@ import 'package:esgrow/constants/spacings.dart';
 import 'package:flutter/material.dart';
 
 class AgreementContainer extends StatelessWidget {
-  const AgreementContainer({super.key});
+  const AgreementContainer({super.key, this.showCustomer = true});
+  final bool showCustomer;
 
   @override
   Widget build(BuildContext context) {
@@ -97,49 +98,54 @@ class AgreementContainer extends StatelessWidget {
           const SizedBox(
             height: defaultPadding * 2,
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(
-                vertical: defaultPadding, horizontal: defaultPadding),
-            decoration: const BoxDecoration(color: iconContainerColor),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.person_outline,
-                      color: Colors.grey,
-                      size: 20,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: defaultPadding / 2),
-                      child: Text(
-                        "Customer",
+          showCustomer
+              ? Container(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: defaultPadding, horizontal: defaultPadding),
+                  decoration: const BoxDecoration(color: iconContainerColor),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.person_outline,
+                            color: Colors.grey,
+                            size: 20,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: defaultPadding / 2),
+                            child: Text(
+                              "Customer",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(fontSize: 12, color: Colors.grey),
+                            ),
+                          ),
+                          Text(
+                            "Erastus Wachiuri",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(
+                                  fontSize: 12,
+                                ),
+                          )
+                        ],
+                      ),
+                      Text(
+                        "3443322",
                         style: Theme.of(context)
                             .textTheme
                             .titleSmall!
-                            .copyWith(fontSize: 12, color: Colors.grey),
-                      ),
-                    ),
-                    Text(
-                      "Erastus Wachiuri",
-                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                            fontSize: 12,
-                          ),
-                    )
-                  ],
-                ),
-                Text(
-                  "3443322",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall!
-                      .copyWith(fontSize: 10, color: Colors.grey),
+                            .copyWith(fontSize: 10, color: Colors.grey),
+                      )
+                    ],
+                  ),
                 )
-              ],
-            ),
-          )
+              : const SizedBox.shrink()
         ],
       ),
     );
