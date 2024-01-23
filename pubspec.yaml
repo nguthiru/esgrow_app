@@ -31,9 +31,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.9
   google_fonts: ^6.1.0
   http: ^1.2.0
   shimmer: ^3.0.0
+  qr_code_scanner: ^1.0.1
 
 dev_dependencies:
 
@@ -57,7 +59,7 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/
+    - assets/images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
