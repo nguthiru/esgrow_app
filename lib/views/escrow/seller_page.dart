@@ -1,11 +1,14 @@
 import 'package:esgrow/constants/colors.dart';
 import 'package:esgrow/constants/spacings.dart';
+import 'package:esgrow/models/app_context.dart';
 import 'package:esgrow/views/escrow/components/agreement_details_entry.dart';
 import 'package:esgrow/views/escrow/seller_escrow_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class SellerPage extends StatelessWidget {
-  const SellerPage({super.key});
+  AppContext appContext;
+
+  SellerPage({super.key, required this.appContext});
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +65,8 @@ class SellerPage extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SellerEscrowDetailPage(),
+                      builder: (context) =>
+                          SellerEscrowDetailPage(appContext: appContext),
                     ));
               },
               style: ElevatedButton.styleFrom(
@@ -78,6 +82,7 @@ class SellerPage extends StatelessWidget {
 
 class EsgrowAgreementCard extends StatefulWidget {
   const EsgrowAgreementCard({super.key, this.agreement});
+
   final String? agreement;
 
   @override
@@ -140,7 +145,9 @@ class _EsgrowAgreementCardState extends State<EsgrowAgreementCard> {
 
 class EsgrowTextField extends StatelessWidget {
   const EsgrowTextField({super.key, required this.label});
+
   final String label;
+
   @override
   Widget build(BuildContext context) {
     return Padding(

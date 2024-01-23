@@ -74,16 +74,15 @@ class _ProfilePageState extends State<ProfilePage> {
     var account = widget.context.details!;
     return ListView(
       children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 8.0),
+         Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Center(
             child: CircleAvatar(
               radius: 40,
-              child: Icon(
-                Icons.account_circle_rounded,
-                color: Colors.white,
-                size: 52,
-              ),
+              foregroundImage: Image.asset(
+                "assets/images/person.jpg",
+                fit: BoxFit.cover,
+              ).image,
             ),
           ),
         ),
@@ -154,7 +153,7 @@ class _ProfilePageState extends State<ProfilePage> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
           child: QrImageView(
-            data: account.id,
+            data: "https://esgrow.org/trade/${account.id}",
             eyeStyle: const QrEyeStyle(
                 color: Colors.white, eyeShape: QrEyeShape.square),
             dataModuleStyle: const QrDataModuleStyle(

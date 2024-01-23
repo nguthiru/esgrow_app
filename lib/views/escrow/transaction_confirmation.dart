@@ -5,6 +5,7 @@ import 'package:esgrow/models/app_context.dart';
 import 'package:esgrow/views/home/home.dart';
 import 'package:esgrow/views/home/homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 String escrowAgreementText =
     "The escrow agreement, pivotal in the sale of furniture between the Buyer and Seller and facilitated by the Escrow Agent, prioritizes the secure and efficient delivery of the purchased items. Acting as a safeguard, this agreement ensures that the funds are securely held until the specified conditions in the purchase agreement, such as successful delivery and acceptance of the furniture, are met. ";
@@ -47,7 +48,7 @@ class TransactionConfirmation extends StatelessWidget {
                     padding:
                         const EdgeInsets.symmetric(horizontal: defaultPadding),
                     child: Text(
-                      "Good Harvest Funitures",
+                      "Caleb Etemesi",
                       style: Theme.of(context)
                           .textTheme
                           .titleLarge!
@@ -117,11 +118,14 @@ class TransactionConfirmation extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     //Execute after 4 seconds
+                    EasyLoading.show(status: "Loading");
 
                     Future.delayed(const Duration(seconds: 5), () {
                       const SnackBar snackBar = SnackBar(
                         content: Text("Agreement Placed Successfully"),
                       );
+
+                      EasyLoading.dismiss();
 
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
 

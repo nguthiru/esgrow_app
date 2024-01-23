@@ -2,6 +2,7 @@ import 'package:esgrow/api/search_users.dart';
 import 'package:esgrow/components/shimmer_component.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../models/user_search.dart';
 
@@ -69,7 +70,21 @@ class _AccountsPageState extends State<AccountsPage> {
   }
 
   Widget showSearchDetails() {
-    return Flexible(child: Center(child: Text("Hello")));
+    return Flexible(
+        child: Center(
+            child: Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Lottie.asset("assets/lottie/search.json"),
+        ),
+        const Text(
+          "Results will be displayed here",
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),
+        ),
+      ],
+    )));
   }
 
   Widget showSearchResults() {

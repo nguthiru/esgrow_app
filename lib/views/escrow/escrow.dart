@@ -57,7 +57,7 @@ class EscrowPage extends StatelessWidget {
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(
                           builder: (context) {
-                            return const SellerPage();
+                            return SellerPage(appContext: appContext);
                           },
                         ));
                       },
@@ -93,7 +93,7 @@ class EscrowSelectionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 180,
+      width: 170,
       height: 200,
       padding: const EdgeInsets.symmetric(
               vertical: defaultPadding, horizontal: defaultPadding) *

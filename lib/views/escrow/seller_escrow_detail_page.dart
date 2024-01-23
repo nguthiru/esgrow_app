@@ -1,12 +1,15 @@
 import 'package:esgrow/components/agreement_container.dart';
 import 'package:esgrow/constants/colors.dart';
 import 'package:esgrow/constants/spacings.dart';
+import 'package:esgrow/models/app_context.dart';
 import 'package:esgrow/views/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class SellerEscrowDetailPage extends StatelessWidget {
-  const SellerEscrowDetailPage({super.key});
+  AppContext appContext;
+
+  SellerEscrowDetailPage({super.key, required this.appContext});
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +63,7 @@ class SellerEscrowDetailPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return const Homepage();
+                    return  Homepage(appContext: appContext);
                   },
                 ));
               },
