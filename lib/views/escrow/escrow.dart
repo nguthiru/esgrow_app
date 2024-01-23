@@ -2,6 +2,7 @@ import 'package:esgrow/constants/colors.dart';
 import 'package:esgrow/constants/spacings.dart';
 import 'package:esgrow/models/app_context.dart';
 import 'package:esgrow/views/escrow/buyer_page.dart';
+import 'package:esgrow/views/escrow/seller_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -52,11 +53,20 @@ class EscrowPage extends StatelessWidget {
                     SizedBox(
                       width: defaultPadding * 2,
                     ),
-                    EscrowSelectionCard(
-                      assetUrl: "assets/images/seller.svg",
-                      title: "Seller",
-                      caption: "I am selling a good or service",
-                      color: containerColor,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return const SellerPage();
+                          },
+                        ));
+                      },
+                      child: EscrowSelectionCard(
+                        assetUrl: "assets/images/seller.svg",
+                        title: "Seller",
+                        caption: "I am selling a good or service",
+                        color: containerColor,
+                      ),
                     ),
                   ],
                 ),
