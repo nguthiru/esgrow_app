@@ -24,11 +24,14 @@ class SellerPage extends StatelessWidget {
                   .copyWith(fontWeight: FontWeight.bold),
             ),
           ),
-          Column(
-            children: [
-              EsgrowTextField(label: "Product"),
-              EsgrowTextField(label: "Price"),
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+            child: Column(
+              children: [
+                EsgrowTextField(label: "Product"),
+                EsgrowTextField(label: "Price"),
+              ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: defaultPadding * 2),
@@ -140,15 +143,18 @@ class EsgrowTextField extends StatelessWidget {
   final String label;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
-        TextField()
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          TextField()
+        ],
+      ),
     );
   }
 }
