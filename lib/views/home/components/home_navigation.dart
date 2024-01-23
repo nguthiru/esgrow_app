@@ -1,5 +1,6 @@
 import 'package:esgrow/components/bottom_navigation_item.dart';
 import 'package:esgrow/constants/spacings.dart';
+import 'package:esgrow/views/escrow/escrow.dart';
 import 'package:flutter/material.dart';
 
 class HomeBottomNavigationBar extends StatefulWidget {
@@ -20,6 +21,7 @@ class HomeBottomNavigationBar extends StatefulWidget {
 class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
       height: widget.height,
       padding: const EdgeInsets.symmetric(
@@ -45,8 +47,17 @@ class _HomeBottomNavigationBarState extends State<HomeBottomNavigationBar> {
               isActive: widget.activeIndex == 1,
               onTap: () => widget.onTap(1)),
           BottomNavigationMainItem(
-            onTap: () => widget.onTap(2),
-            isActive: widget.activeIndex == 2,
+            onTap: () => {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                backgroundColor: Colors.transparent,
+                context: context,
+                builder: (context) {
+                  return Container(height: 300, child: EscrowPage());
+                },
+              )
+            },
+            isActive: true,
           ),
           BottomNavigationItem(
               icon: const Icon(Icons.wallet_outlined),
